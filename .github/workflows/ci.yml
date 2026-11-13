@@ -1,0 +1,55 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - name: Dépendances
+        run: npm install --no-audit --no-fund
+      - name: Vérification des types (cœur, viem, tests)
+        run: npm run typecheck
+      - name: Tests
+        run: npm test
+      - name: Vulnérabilités des dépendances de production
+        run: npm audit --omit=dev --audit-level=high
+      - name: Image Docker
+        run: docker build -t adminwatch .
+      - name: L'image démarre et refuse une configuration absente
+        run: |
+          set +e
+          docker run --rm adminwatch run --config /nope.json
+          test $? -eq 1
+
+  image:
+    # Publie l'image sur GitHub Container Registry après chaque fusion dans main
+    if: github.event_name == 'push'
+    needs: tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/adminwatch:latest
+            ghcr.io/${{ github.repository_owner }}/adminwatch:${{ github.sha }}
