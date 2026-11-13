@@ -1,0 +1,26 @@
+{
+  "chains": {
+    "ethereum": { "rpcUrl": "${ETHEREUM_RPC_URL}" },
+    "base": { "rpcUrl": "${BASE_RPC_URL}" }
+  },
+  "watchers": [
+    { "address": "0x0000000000000000000000000000000000000001", "label": "Mon portefeuille", "telegramChatId": "123456789" }
+  ],
+  "aaveV3": true,
+  "customProtocols": [
+    {
+      "name": "Mon coffre",
+      "chain": "ethereum",
+      "contracts": [
+        { "address": "0x0000000000000000000000000000000000000002", "label": "Vault (mandataire)" },
+        { "address": "0x0000000000000000000000000000000000000003", "label": "Timelock" }
+      ],
+      "positionTokens": ["0x0000000000000000000000000000000000000002"]
+    }
+  ],
+  "pollSeconds": 60,
+  "confirmations": 3,
+  "maxBlocksPerCycle": 2000,
+  "minSeverity": "warning",
+  "statePath": "/data/state.json"
+}

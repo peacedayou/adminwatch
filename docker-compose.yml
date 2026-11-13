@@ -1,0 +1,16 @@
+services:
+  adminwatch:
+    image: ghcr.io/peacedayou/adminwatch:latest
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ./config.json:/config/config.json:ro
+      - adminwatch-data:/data
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: [ALL]
+
+volumes:
+  adminwatch-data:

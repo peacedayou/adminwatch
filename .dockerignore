@@ -1,0 +1,8 @@
+node_modules
+_site
+data
+.env
+config.json
+.git
+test
+demo

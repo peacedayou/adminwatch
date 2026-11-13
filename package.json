@@ -1,0 +1,23 @@
+{
+  "name": "adminwatch",
+  "version": "0.1.0",
+  "description": "Alertes Telegram quand un protocole DeFi où vous avez une position planifie une mise à jour, change un rôle, se met en pause ou change d'oracle.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22.18" },
+  "bin": { "adminwatch": "src/cli.ts" },
+  "scripts": {
+    "start": "node src/cli.ts run",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "typecheck": "tsc -p tsconfig.json",
+    "demo": "node demo/build.ts"
+  },
+  "dependencies": {
+    "viem": "^2.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.8.0"
+  }
+}
