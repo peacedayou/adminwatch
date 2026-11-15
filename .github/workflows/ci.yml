@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: "22"
       - name: Dépendances
-        run: npm install --no-audit --no-fund
+        run: npm ci --no-audit --no-fund
       - name: Vérification des types (cœur, viem, tests)
         run: npm run typecheck
       - name: Tests
