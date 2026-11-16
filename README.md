@@ -1,3 +1,5 @@
+> **⚠️ Projet éducatif — portfolio étudiant.** Ce dépôt n'est ni un produit ni un service commercial : aucune vente, aucun abonnement, aucun déploiement en production. À ne pas exécuter avec des fonds ou des données réels.
+
 # AdminWatch
 
 [![CI](https://github.com/peacedayou/adminwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/peacedayou/adminwatch/actions/workflows/ci.yml)
