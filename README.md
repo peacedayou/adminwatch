@@ -18,6 +18,17 @@ particuliers : il détecte lui-même vos positions et ne vous parle que des prot
 > aucune transaction et ne peut pas toucher aux fonds. Les alertes décrivent des faits observés
 > sur la chaîne ; ce ne sont pas des conseils financiers.
 
+## Ça vous intéresse ?
+
+**Pour qui :** Particuliers et petits fonds qui ont des positions sur Aave, Compound ou d'autres protocoles DeFi et veulent être prévenus avant un changement d'administration.
+
+**Essayez la démo :** <https://peacedayou.github.io/adminwatch/>
+
+- ⭐ Ajoutez une étoile ou suivez le dépôt (**Watch**) pour être prévenu des nouvelles versions.
+- 📝 Dites-moi votre besoin : [ouvrez une fiche « Je suis intéressé »](https://github.com/peacedayou/adminwatch/issues/new?template=interet.yml).
+  Cela m'aide à choisir les prochaines fonctions. Aucune vente ni aucun engagement : c'est une simple liste d'intérêt.
+- 💬 Une question ou une idée ? Ouvrez une *issue* ; je réponds en français ou en anglais.
+
 ## Comment ça marche
 
 ```
